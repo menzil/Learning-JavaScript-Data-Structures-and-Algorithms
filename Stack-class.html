@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>十进制装车二进制</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+</head>
+<body>
+
+  <script>
+    class Stack{
+      constructor(){
+        this.items = [];
+      }
+      push(element){
+        this.items.push(element);
+      }
+      pop(element) {
+        return this.items.pop(element);
+      }
+      isEmpty(){
+        return this.items.length == 0;
+      }
+
+    }
+
+    function divideBy2(decNumber) {
+      let remStack = new Stack();
+      let rem,binaryString = '';
+
+      while(decNumber > 0){
+        rem = Math.floor(decNumber % 2);
+        remStack.push(rem);
+        decNumber = Math.floor(decNumber / 2);
+      }
+
+      while(!remStack.isEmpty()){
+        binaryString += remStack.pop().toString();
+      }
+      return binaryString;
+    }
+  
+  console.log(divideBy2(10));
+  </script>
+  
+</body>
+</html>
